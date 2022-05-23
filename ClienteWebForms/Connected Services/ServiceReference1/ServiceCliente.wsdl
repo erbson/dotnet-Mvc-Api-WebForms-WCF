@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceCliente" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/Entity" />
+      <xs:element name="BuscaTodosClientes">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BuscaTodosClientesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="BuscaTodosClientesResult" nillable="true" type="q1:ArrayOfCliente" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RetornaCliente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RetornaClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="RetornaClienteResult" nillable="true" type="q2:ArrayOfCliente" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InsereCliente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="cliente" nillable="true" type="q3:Cliente" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InsereClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="InsereClienteResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveCliente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="RemoveClienteResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AtualizaCliente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="cliente" nillable="true" type="q4:Cliente" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AtualizaClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AtualizaClienteResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ClienteExiste">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ClienteExisteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ClienteExisteResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfCliente">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Cliente" nillable="true" type="tns:Cliente" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCliente" nillable="true" type="tns:ArrayOfCliente" />
+      <xs:complexType name="Cliente">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Bairro" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Cep" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Cidade" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Complemento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Data_Expedicao" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Data_Nascimento" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Estado_Civil" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Numero" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Orgaao_Expedicao" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Rg" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Rua" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UF" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UF_Expedicao" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cpf" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceCliente_BuscaTodosClientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaTodosClientes" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCliente_BuscaTodosClientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaTodosClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCliente_RetornaCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetornaCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCliente_RetornaCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetornaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCliente_InsereCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsereCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCliente_InsereCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsereClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCliente_RemoveCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCliente_RemoveCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCliente_AtualizaCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizaCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCliente_AtualizaCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCliente_ClienteExiste_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClienteExiste" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCliente_ClienteExiste_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClienteExisteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceCliente">
+    <wsdl:operation name="BuscaTodosClientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCliente/BuscaTodosClientes" message="tns:IServiceCliente_BuscaTodosClientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCliente/BuscaTodosClientesResponse" message="tns:IServiceCliente_BuscaTodosClientes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornaCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCliente/RetornaCliente" message="tns:IServiceCliente_RetornaCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCliente/RetornaClienteResponse" message="tns:IServiceCliente_RetornaCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsereCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCliente/InsereCliente" message="tns:IServiceCliente_InsereCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCliente/InsereClienteResponse" message="tns:IServiceCliente_InsereCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCliente/RemoveCliente" message="tns:IServiceCliente_RemoveCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCliente/RemoveClienteResponse" message="tns:IServiceCliente_RemoveCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizaCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCliente/AtualizaCliente" message="tns:IServiceCliente_AtualizaCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCliente/AtualizaClienteResponse" message="tns:IServiceCliente_AtualizaCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClienteExiste">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCliente/ClienteExiste" message="tns:IServiceCliente_ClienteExiste_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCliente/ClienteExisteResponse" message="tns:IServiceCliente_ClienteExiste_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceCliente" type="tns:IServiceCliente">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscaTodosClientes">
+      <soap:operation soapAction="http://tempuri.org/IServiceCliente/BuscaTodosClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornaCliente">
+      <soap:operation soapAction="http://tempuri.org/IServiceCliente/RetornaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsereCliente">
+      <soap:operation soapAction="http://tempuri.org/IServiceCliente/InsereCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCliente">
+      <soap:operation soapAction="http://tempuri.org/IServiceCliente/RemoveCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizaCliente">
+      <soap:operation soapAction="http://tempuri.org/IServiceCliente/AtualizaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClienteExiste">
+      <soap:operation soapAction="http://tempuri.org/IServiceCliente/ClienteExiste" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceCliente">
+    <wsdl:port name="BasicHttpBinding_IServiceCliente" binding="tns:BasicHttpBinding_IServiceCliente">
+      <soap:address location="http://localhost:7099/ServiceCliente.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,273 @@
+﻿@model Mvc.Cliente.Models.Cliente
+
+@{
+    ViewBag.Title = "Atulização";
+}
+
+<h2>Atualizar Cadastro</h2>
+<style>
+    #UF, #UF_Expedicao, #Sexo {
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        box-sizing: border-box;
+        font: inherit;
+        margin: 0;
+        text-transform: none;
+        font-family: inherit;
+        max-width: 280px;
+        display: block;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        width: 150px;
+    }
+</style>
+<script type="text/javascript">
+
+
+    function mascara() {
+        $("#cpf").mask("999.999.999-99");
+        $("#Data_Nascimento").mask("99/99/9999");
+        $("#Data_Expedicao").mask("99/99/9999");
+    }
+
+
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <h4>Cliente</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label>CPF</label>
+
+                @Html.EditorFor(model => model.cpf, new { htmlAttributes = new { @class = "form-control", @onblur = "mascara()" } })
+                @Html.ValidationMessageFor(model => model.cpf, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-8">
+                <label>Nome</label>
+
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                @Html.LabelFor(model => model.Rg, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.Rg, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Rg, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-3">
+                <label>Data de Expedição</label>
+
+                @Html.EditorFor(model => model.Data_Expedicao, new { htmlAttributes = new { @class = "form-control", @onblur = "mascara" } })
+
+            </div>
+
+            <div class="form-group col-md-3">
+                <label>Orgão de Expedição</label>
+
+                @Html.EditorFor(model => model.Orgaao_Expedicao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Orgaao_Expedicao, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-3">
+                <label>UF Expedição</label>
+                @Html.DropDownList("UF_Expedicao", new List<SelectListItem>
+                   {
+                     new SelectListItem { Text = "Acre",  Value="AC"},
+                     new SelectListItem { Text = "Alagoas",  Value="AL"},
+                     new SelectListItem { Text = "Amapá",  Value="AP"},
+                     new SelectListItem { Text = "Amazonas",  Value="AM"},
+                     new SelectListItem { Text = "Bahia",  Value="BA"},
+                     new SelectListItem { Text = "Ceará",  Value="CE"},
+                     new SelectListItem { Text = "Espírito Santo",  Value="ES"},
+                     new SelectListItem { Text = "Goiás",  Value="GO"},
+                     new SelectListItem { Text = "Maranhão",  Value="MA"},
+                     new SelectListItem { Text = "Mato Grosso",  Value="MT"},
+                     new SelectListItem { Text = "Mato Grosso do Sul",  Value="MS"},
+                     new SelectListItem { Text = "Minas Gerais",  Value="MG"},
+                     new SelectListItem { Text = "Pará",  Value="PA"},
+                     new SelectListItem { Text = "Paraíba",  Value="PB"},
+                     new SelectListItem { Text = "Paraná",  Value="PR"},
+                     new SelectListItem { Text = "Pernambuco",  Value="PE"},
+                     new SelectListItem { Text = "Piauí",  Value="PI"},
+                     new SelectListItem { Text = "Rio de Janeiro",  Value="RJ"},
+                     new SelectListItem { Text = "Rio Grande do Norte",  Value="RN"},
+                     new SelectListItem { Text = "Rio Grande do Sul",  Value="RS"},
+                     new SelectListItem { Text = "Rondônia",  Value="RO"},
+                     new SelectListItem { Text = "Roraima",  Value="RR"},
+                     new SelectListItem { Text = "Santa Catarina",  Value="SC"},
+                     new SelectListItem { Text = "São Paulo",  Value="SP"},
+                     new SelectListItem { Text = "Sergipe",  Value="SE"},
+                     new SelectListItem { Text = "Tocantins",  Value="TO"}
+                   }, "Selecione UF", new { htmlAttributes = new { @class = "form-control" } })
+
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group col-md-4">
+                <label>Data de Nascimento</label>
+
+
+                @Html.EditorFor(model => model.Data_Nascimento, new { htmlAttributes = new { @class = "form-control", @onblur = "mascara" } })
+
+
+
+            </div>
+
+
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.Sexo)
+
+                @Html.DropDownList("Sexo", new List<SelectListItem>
+                     {
+                        new SelectListItem { Text = "Masculino",  Value="Masculino"},
+                        new SelectListItem { Text = "Feminino",  Value="Feminino"}
+                     }, "Sexo", new { htmlAttributes = new { @class = "form-control" } })
+
+
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Estado Civil</label>
+
+                @Html.EditorFor(model => model.Estado_Civil, new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                @Html.LabelFor(model => model.Cep, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.Cep, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cep, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-2">
+                @Html.LabelFor(model => model.Rua, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.Rua, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Rua, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-1">
+                @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-2">
+                @Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-2">
+                @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-2">
+                @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.Cidade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
+
+            </div>
+           @{ 
+               string classeOption = "class = 'form-control'";
+           }
+            <div class="form-group col-md-1">
+                @Html.LabelFor(model => model.UF, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.DropDownList("UF", new List<SelectListItem>
+                    {
+                      new SelectListItem { Text = "Acre",  Value="AC"},
+                      new SelectListItem { Text = "Alagoas",  Value="AL"},
+                      new SelectListItem { Text = "Amapá",  Value="AP"},
+                      new SelectListItem { Text = "Amazonas",  Value="AM"},
+                      new SelectListItem { Text = "Bahia",  Value="BA"},
+                      new SelectListItem { Text = "Ceará",  Value="CE"},
+                      new SelectListItem { Text = "Espírito Santo",  Value="ES"},
+                      new SelectListItem { Text = "Goiás",  Value="GO"},
+                      new SelectListItem { Text = "Maranhão",  Value="MA"},
+                      new SelectListItem { Text = "Mato Grosso",  Value="MT"},
+                      new SelectListItem { Text = "Mato Grosso do Sul",  Value="MS"},
+                      new SelectListItem { Text = "Minas Gerais",  Value="MG"},
+                      new SelectListItem { Text = "Pará",  Value="PA"},
+                      new SelectListItem { Text = "Paraíba",  Value="PB"},
+                      new SelectListItem { Text = "Paraná",  Value="PR"},
+                      new SelectListItem { Text = "Pernambuco",  Value="PE"},
+                      new SelectListItem { Text = "Piauí",  Value="PI"},
+                      new SelectListItem { Text = "Rio de Janeiro",  Value="RJ"},
+                      new SelectListItem { Text = "Rio Grande do Norte",  Value="RN"},
+                      new SelectListItem { Text = "Rio Grande do Sul",  Value="RS"},
+                      new SelectListItem { Text = "Rondônia",  Value="RO"},
+                      new SelectListItem { Text = "Roraima",  Value="RR"},
+                      new SelectListItem { Text = "Santa Catarina",  Value="SC"},
+                      new SelectListItem { Text = "São Paulo",  Value="SP"},
+                      new SelectListItem { Text = "Sergipe",  Value="SE"},
+                      new SelectListItem { Text = "Tocantins",  Value="TO"}
+                    }, "Selecione UF", new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.UF, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Retonar", "Index")
+    <script>
+        window.addEventListener('load', (event) => {
+            mascara();
+        });
+
+    </script>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+}

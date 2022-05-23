@@ -1,0 +1,9 @@
+C:\GTISolution\CadastroDeClientes\Infra\bin\Debug\Infra.dll
+C:\GTISolution\CadastroDeClientes\Infra\bin\Debug\Infra.pdb
+C:\GTISolution\CadastroDeClientes\Infra\bin\Debug\Entity.dll
+C:\GTISolution\CadastroDeClientes\Infra\bin\Debug\Entity.pdb
+C:\GTISolution\CadastroDeClientes\Infra\obj\Debug\Infra.csproj.AssemblyReference.cache
+C:\GTISolution\CadastroDeClientes\Infra\obj\Debug\Infra.csproj.CoreCompileInputs.cache
+C:\GTISolution\CadastroDeClientes\Infra\obj\Debug\Infra.csproj.CopyComplete
+C:\GTISolution\CadastroDeClientes\Infra\obj\Debug\Infra.dll
+C:\GTISolution\CadastroDeClientes\Infra\obj\Debug\Infra.pdb

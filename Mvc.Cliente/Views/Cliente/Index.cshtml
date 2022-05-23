@@ -1,0 +1,132 @@
+﻿@model IEnumerable<Mvc.Cliente.Models.Cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cadastro de Clientes</h2>
+
+<p>
+  
+    <button onclick="location.href='@Url.Action("Create", "Cliente")';return false;" class="btn btn-success">Cadastrar Novo Cliente</button>
+</p>
+<table class="table table-striped table-bordered table-hover" style="width:100%">
+    <tr>
+        <th style="padding-right: 300px;">
+
+        </th>
+        <th style="padding-right: 120px;">
+            CPF
+        </th>
+        <th style="padding-right: 120px;">
+            Nome
+        </th>
+        <th>
+            Rg
+        </th>
+        <th>
+            Data de Expedição
+        </th>
+        <th>
+            Orgão Expedidor
+        </th>
+        <th>
+            UF Expedição
+        </th>
+        <th>
+            Data de Nascimento
+        </th>
+        <th>
+            Sexo
+        </th>
+        <th>
+            Esta Civil
+        </th>
+        <th>
+            Cep
+        </th>
+        <th>
+            Rua
+        </th>
+        <th>
+            Numero
+        </th>
+        <th>
+            Complemento
+        </th>
+        <th>
+            Bairro
+        </th>
+        <th>
+            Cidade
+        </th>
+        <th>
+            UF
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+      
+        <button onclick="location.href = '@Url.Action("Edit", "Cliente",new { id = item.Id })';return false;" class="btn btn-info">Atualizar Cadastro</button>
+        <button onclick="location.href = '@Url.Action("Delete", "Cliente",new { id = item.Id })';return false;" class="btn btn-danger">Excluir Cadastro</button>
+
+       
+    </td>
+ 
+    <td>
+        @Html.DisplayFor(modelItem => item.cpf)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Rg)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Data_Expedicao)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Orgaao_Expedicao)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UF_Expedicao)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Data_Nascimento)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Sexo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Estado_Civil)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cep)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Rua)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Numero)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Complemento)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Bairro)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cidade)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UF)
+    </td>
+
+</tr>
+}
+
+</table>
